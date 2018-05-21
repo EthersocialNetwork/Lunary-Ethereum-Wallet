@@ -3,30 +3,30 @@
 
     <string name="app_name">EtherSocial Wallet</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">설정</string>
     <string name="title_activity_main">EtherSocial Wallet</string>
 
-    <string name="fab_scan">Scan Address / Key</string>
-    <string name="fab_add_watch">Lookup Address</string>
-    <string name="fab_add_aswatch">Add as Watch Only Wallet</string>
-    <string name="fab_gen_new">Generate New Wallet</string>
-    <string name="fab_request">Request</string>
-    <string name="fab_send">Send</string>
-    <string name="fab_sendether">Send EtherSocial</string>
-    <string name="fab_setwalletname">Set Wallet Name</string>
-    <string name="drawer_import">Import Wallets</string>
-    <string name="drawer_about">About Us</string>
-    <string name="drawer_donate">Donate</string>
+    <string name="fab_scan">QR 코드 주소확인</string>
+    <string name="fab_add_watch">주소 찾아보기</string>
+    <string name="fab_add_aswatch">보기 전용으로 지갑 추가</string>
+    <string name="fab_gen_new">새로운 지갑 만들기</string>
+    <string name="fab_request">받기 요청</string>
+    <string name="fab_send">보내기</string>
+    <string name="fab_sendether">이더소셜 전송</string>
+    <string name="fab_setwalletname">지갑 이름 설정</string>
+    <string name="drawer_import">지갑 불러오기</string>
+    <string name="drawer_about">제작자 소개</string>
+    <string name="drawer_donate">기부하기</string>
 
-    <string name="fr_price_current_price">Current Price</string>
-    <string name="fr_wallet_overall_balance">Overall Balance</string>
-    <string name="fr_detail_acc_balance">Account Balance</string>
+    <string name="fr_price_current_price">현재 시세</string>
+    <string name="fr_wallet_overall_balance">전체 잔액</string>
+    <string name="fr_detail_acc_balance">계정 잔액</string>
 
-    <string name="main_ac_wallet_added_suc">Your wallet was added successfully</string>
-    <string name="main_ac_wallet_added_er">Wallet was already added</string>
-    <string name="main_ac_wallet_added_fatal">Err Not a valid ethersocial address</string>
-    <string name="detail_acc_name_changed_suc">Wallet successfully renamed</string>
-    <string name="title_activity_settings">Settings</string>
+    <string name="main_ac_wallet_added_suc">지갑이 성공적으로 추가되었습니다.</string>
+    <string name="main_ac_wallet_added_er">지갑이 이미 추가되었습니다.</string>
+    <string name="main_ac_wallet_added_fatal">에러. 유효한 이더소셜 주소가 아닙니다.</string>
+    <string name="detail_acc_name_changed_suc">지갑 이름이 변경되었습니다.</string>
+    <string name="title_activity_settings">설정</string>
 
     <string name="pref_header_general">General</string>
 
