@@ -95,6 +95,7 @@ public class FragmentTransactionsAll extends FragmentTransactionsAbstract {
                             }
                         }
                     }, force);
+                    /*
                     EtherscanAPI.getInstance().getInternalTransactions(currentWallet.getPubKey(), new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
@@ -125,6 +126,7 @@ public class FragmentTransactionsAll extends FragmentTransactionsAbstract {
                             }
                         }
                     }, force);
+                    */
                 } catch (IOException e) {
                     if (isAdded()) {
                         if (ac != null)
@@ -145,7 +147,10 @@ public class FragmentTransactionsAll extends FragmentTransactionsAbstract {
     private void onComplete(ArrayList<TransactionDisplay> w, ArrayList<StorableWallet> storedwallets) {
         addToWallets(w);
         addRequestCount();
-        if (getRequestCount() >= storedwallets.size() * 2) {
+
+        // Internal Request 미구현
+        if (getRequestCount() >= storedwallets.size()) {
+         // if (getRequestCount() >= storedwallets.size() * 2) {
             onItemsLoadComplete();
 
             // If transaction was send via App and has no confirmations yet (Still show it when users refreshes for 10 minutes)

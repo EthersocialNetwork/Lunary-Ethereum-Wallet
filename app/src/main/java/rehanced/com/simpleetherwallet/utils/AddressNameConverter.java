@@ -31,12 +31,12 @@ public class AddressNameConverter {
     private AddressNameConverter(Context context) {
         try {
             load(context);
-            if (!contains("0xa9981a33f6b1a18da5db58148b2357f22b44e1e0")) {
-                put("0xa9981a33f6b1a18da5db58148b2357f22b44e1e0", "Lunary Development ✓", context);
+            if (!contains("0xeacac2c75920b8f6e65f37ad81deb113d526d031")) {
+                put("0xeacac2c75920b8f6e65f37ad81deb113d526d031", "Ethersocial Development ✓", context);
             }
         } catch (Exception e) {
             addressbook = new HashMap<String, String>();
-            put("0xa9981a33f6b1a18da5db58148b2357f22b44e1e0", "Lunary Development ✓", context);
+            put("0xeacac2c75920b8f6e65f37ad81deb113d526d031", "Ethersocial Development ✓", context);
         }
         wellknown_addresses = new WellKnownAddresses();
     }

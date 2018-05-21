@@ -72,7 +72,7 @@ public class ResponseParser {
             BigInteger balance = new BigInteger("0");
             for (int j = 0; j < data.length(); j++) {
                 if (data.getJSONObject(j).getString("account").equalsIgnoreCase(storedwallets.get(i).getPubKey())) {
-                    balance = new BigInteger(data.getJSONObject(i).getString("balance"));
+                    balance = new BigInteger(data.getJSONObject(j).getString("balance"));
                     break;
                 }
             }
@@ -121,14 +121,14 @@ public class ResponseParser {
     }
 
     public static String parseBalance(String response, int comma) throws JSONException {
-        String balance = new JSONObject(response).getString("result");
+        String balance = new JSONObject(response).getJSONObject("result").getString("balance");
         if (balance.equals("0")) return "0";
         return new BigDecimal(balance).divide(new BigDecimal(1000000000000000000d), comma, BigDecimal.ROUND_UP).toPlainString();
     }
 
     public static BigInteger parseGasPrice(String response) throws Exception {
-        String gasprice = new JSONObject(response).getString("result");
-        return new BigInteger(gasprice.substring(2), 16);
+        String gasprice = new JSONObject(response).getJSONObject("result").getString("gasPrice");
+        return new BigInteger(gasprice);
     }
 
     // Only call for each address, not the combined one
