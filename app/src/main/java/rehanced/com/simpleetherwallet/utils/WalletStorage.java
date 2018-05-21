@@ -136,7 +136,7 @@ public class WalletStorage {
             ExternalStorageHandler.askForPermissionRead(c);
             return;
         }
-        File[] wallets = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Lunary/").listFiles();
+        File[] wallets = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Ethersocial/").listFiles();
         if (wallets == null) {
             Dialogs.noImportWalletsFound(c);
             return;

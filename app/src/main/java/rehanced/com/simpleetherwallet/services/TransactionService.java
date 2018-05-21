@@ -60,7 +60,7 @@ public class TransactionService extends IntentService {
                 public void onResponse(Call call, final Response response) throws IOException {
                     try {
                         JSONObject o = new JSONObject(response.body().string());
-                        BigInteger nonce = new BigInteger(o.getString("result").substring(2), 16);
+                        BigInteger nonce = new BigInteger(o.getJSONObject("result").getString("count").substring(2), 16);
 
                         RawTransaction tx = RawTransaction.createTransaction(
                                 nonce,
@@ -80,7 +80,7 @@ public class TransactionService extends IntentService {
                                         "Data: " + tx.getData()
                         );
 
-                        byte[] signed = TransactionEncoder.signMessage(tx, (byte) 1, keys);
+                        byte[] signed = TransactionEncoder.signMessage(tx, keys);
 
                         forwardTX(signed);
                     } catch (Exception e) {
