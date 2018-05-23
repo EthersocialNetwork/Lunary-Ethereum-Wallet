@@ -52,6 +52,7 @@
         <item>CAD</item>
         <item>JPY</item>
         <item>RUB</item>
+        <item>KRW</item>
     </string-array>
 
     <string-array name="pref_sync_frequency_titles">

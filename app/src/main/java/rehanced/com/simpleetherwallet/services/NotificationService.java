@@ -98,7 +98,7 @@ public class NotificationService extends IntentService {
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setContentTitle(this.getResources().getString(R.string.notification_title))
                 .setAutoCancel(true)
-                .setContentText(amount + " ETH");
+                .setContentText(amount + " ESN");
 
         if (android.os.Build.VERSION.SDK_INT >= 18) // Android bug in 4.2, just disable it for everyone then...
             builder.setVibrate(new long[]{1000, 1000});

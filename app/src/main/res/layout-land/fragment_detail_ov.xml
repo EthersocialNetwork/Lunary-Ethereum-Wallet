@@ -80,7 +80,7 @@
                                 android:textColor="@color/colorPrimaryDark" />
 
                             <TextView
-                                android:text="ETH"
+                                android:text="ESN"
                                 android:id="@+id/currency"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
