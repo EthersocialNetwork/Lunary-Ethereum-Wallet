@@ -38,9 +38,9 @@ public class ExchangeCalculator {
     }
 
     private CurrencyEntry[] conversionNames = new CurrencyEntry[]{
-            new CurrencyEntry("ETH", 1, "Ξ"),
-            new CurrencyEntry("BTC", 0.07, "฿"),
-            new CurrencyEntry("USD", 0, "$")
+            new CurrencyEntry("ESN", 1, "Ξ"),
+            new CurrencyEntry("BTC", 0.000056, "฿"),
+            new CurrencyEntry("USD", 0.463, "$")
     };
 
     private int index = 0;
@@ -103,7 +103,7 @@ public class ExchangeCalculator {
     }
 
     /**
-     * Converts given tokenbalance to ETH
+     * Converts given tokenbalance to ESN
      *
      * @param tokenbalance native token balance
      * @param tokenusd     price in USD for each token
@@ -151,7 +151,7 @@ public class ExchangeCalculator {
     public double sumUpTokenEther(List<TokenDisplay> token) {
         double summedEther = 0;
         for (TokenDisplay t : token) {
-            if (t.getShorty().equals("ETH")) continue;
+            if (t.getShorty().equals("ESN")) continue;
             summedEther += convertTokenToEther(t.getBalanceDouble(), t.getUsdprice());
         }
         return summedEther;
@@ -187,7 +187,10 @@ public class ExchangeCalculator {
                 conversionNames[2].setShorty("$");
             else if (currency.equals("JPY"))
                 conversionNames[2].setShorty("¥");
-
+            else if (currency.equals("KRW")) {
+                conversionNames[2].setShorty("￦");
+                conversionNames[2].setRate(500);
+            }
             else
                 conversionNames[2].setShorty(currency);
         }

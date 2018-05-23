@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="translator_name"></string>
 
-    <string name="app_name">Ethersocial Wallet</string>
+    <string name="app_name">Ethersocial</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">Ethersocial Wallet</string>
+    <string name="title_activity_main">Ethersocial</string>
 
     <string name="fab_scan">Scan Address / Key</string>
     <string name="fab_add_watch">Lookup Address</string>
@@ -52,6 +52,7 @@
         <item>CAD</item>
         <item>JPY</item>
         <item>RUB</item>
+        <item>KRW</item>
     </string-array>
 
     <string-array name="pref_sync_frequency_titles">
@@ -233,7 +234,7 @@
     <string name="send_expert_warning">You can add extra data to send along with your transaction. If you don\'t know what this is then don\'t touch it or bad things may happen!</string>
     <string name="expert_mode_optional">Expert Mode (Optional)</string>
     <string name="transaction_failed">Transaction failed</string>
-    <string name="reddit">Ethersocial Wallet Subreddit</string>
+    <string name="reddit">Ethersocial Wallet Discord</string>
     <string name="add">Add</string>
     <string name="show">Show</string>
     <string name="setting_erc_qr_encoding">Use ERC-67 QR Encoding</string>

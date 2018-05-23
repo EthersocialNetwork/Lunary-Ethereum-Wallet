@@ -449,7 +449,7 @@ public class MainActivity extends SecureAppCompatActivity implements NetworkUpda
             }
             case 4: {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://www.reddit.com/r/lunary"));
+                i.setData(Uri.parse("https://discordapp.com/channels/422563901364895761/422571103299305472"));
                 startActivity(i);
                 break;
             }

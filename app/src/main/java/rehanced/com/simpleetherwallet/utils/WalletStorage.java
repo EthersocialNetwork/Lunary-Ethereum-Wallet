@@ -205,7 +205,7 @@ public class WalletStorage {
             walletToExport = walletToExport.substring(2);
 
         if (ExternalStorageHandler.hasPermission(c)) {
-            File folder = new File(Environment.getExternalStorageDirectory(), "Lunary");
+            File folder = new File(Environment.getExternalStorageDirectory(), "Ethersocial");
             if (!folder.exists()) folder.mkdirs();
 
             File storeFile = new File(folder, walletToExport + ".json");

@@ -53,7 +53,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:minWidth="135dp"
-                        android:text="0.0000 ETH"
+                        android:text="0.0000 ESN"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="24sp" />
 

@@ -377,7 +377,8 @@ public class Dialogs {
         else
             builder = new AlertDialog.Builder(c);
         builder.setTitle(R.string.dialog_importing_wallets_title);
-        builder.setMessage(String.format(c.getString(R.string.dialog_importing_wallets_text), files.size(), files.size() > 1 ? "s" : "", addresses));
+        String lang = Locale.getDefault().getLanguage();     // 한국어는 단수, 복수 없음
+        builder.setMessage(String.format(c.getString(R.string.dialog_importing_wallets_text), files.size(), lang.equals("ko") ? "" : (files.size() > 1 ? "s" : ""), addresses));
         builder.setPositiveButton(R.string.button_yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

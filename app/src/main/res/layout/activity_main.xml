@@ -26,15 +26,15 @@
             app:layout_scrollFlags="scroll|enterAlways">
 
             <TextView
+                android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lunary Wallet"
+                android:layout_gravity="center"
                 android:layout_marginTop="0dp"
                 android:fontFamily="sans-serif-light"
-                android:textSize="23sp"
+                android:text="Ethersocial Wallet"
                 android:textColor="#F4FEFEFE"
-                android:layout_gravity="center"
-                android:id="@+id/toolbar_title" />
+                android:textSize="23sp" />
 
         </android.support.v7.widget.Toolbar>
 
