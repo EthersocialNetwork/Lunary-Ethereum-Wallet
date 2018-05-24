@@ -102,15 +102,13 @@ public class EtherscanAPI {
      * @throws IOException Network exceptions
      */
     public void getTokenBalances(String address, Callback b, boolean force) throws IOException {
-        /*
         if (!force && RequestCache.getInstance().contains(RequestCache.TYPE_TOKEN, address)) {
             b.onResponse(null, new Response.Builder().code(200).message("").request(new Request.Builder()
-                    .url("https://api.ethplorer.io/getAddressInfo/" + address + "?apiKey=freekey")
+                    .url("http://esn-api.topmining.co.kr/get_token.php?address=" + address)
                     .build()).protocol(Protocol.HTTP_1_0).body(ResponseBody.create(MediaType.parse("JSON"), RequestCache.getInstance().get(RequestCache.TYPE_TOKEN, address))).build());
             return;
         }
-        get("http://api.ethplorer.io/getAddressInfo/" + address + "?apiKey=freekey", b);
-        */
+        get("http://esn-api.topmining.co.kr/get_token.php?address=" + address, b);
     }
 
 
@@ -128,13 +126,8 @@ public class EtherscanAPI {
             tokenName = tokenName.substring(0, tokenName.indexOf(" "));
         if (TokenIconCache.getInstance(c).contains(tokenName)) return;
 
-        if(tokenName.equalsIgnoreCase("OMGToken"))
-            tokenName = "omise";
-        else if(tokenName.equalsIgnoreCase("0x"))
-            tokenName = "0xtoken_28";
-
         final String tokenNamef = tokenName;
-        get("http://etherscan.io//token/images/" + tokenNamef + ".PNG", new Callback() {
+        get("http://esn-api.topmining.co.kr/token/images/" + tokenNamef + ".png", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
             }
