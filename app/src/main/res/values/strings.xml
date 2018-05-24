@@ -31,7 +31,7 @@
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Show zero amount transactions</string>
-    <string name="pref_description_social_recommendations">Whethersocial to hide contract calls without any ethersocial amount or not</string>
+    <string name="pref_description_social_recommendations">Whether to hide contract calls without any ethersocial amount or not</string>
 
 
     <string name="pref_title_start">Wallet as default tab</string>
@@ -257,13 +257,16 @@
     <string name="activity_private_key_explanation">This is the unencrypted private key of your wallet. Anyone with access to this key or QR code can spend your funds like ethersocial and tokens. Dont store this unencrypted!</string>
     <string name="activity_private_key_wrong_pw">Your password is not correct - cant decrypt private key!</string>
 
+    <string name="about_us">About Ethersocial Wallet</string>
+    <string name="about_us_message">Ethersocial Wallet is published under GPL3\nDeveloped by TopMining.\nEthersocial Foundation for usage of the icon according to (CC A 3.0)\Coin or Token balances powered by esn-api.topmining.co.kr\nThis app is based on Lunary and you can find more details in https://github.com/topmining/ethersocial-mobile-wallet</string>
 
+    <string name="legal">Legal</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[
 <p><h2>GNU GENERAL PUBLIC LICENSE</h2></p>
 <p>Version 3, 29 June 2007</p>
 
-<p> Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
+<p> Copyright (C) 2007 Free Software Foundation, Inc. http://fsf.org</p>
+<p>Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.</p>
 
                             <p>Preamble</p>
@@ -892,8 +895,8 @@ to attach them to the start of each source file to most effectively
 state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.</p>
 
-<p>    Ethersocial Wallet is a free and open source Ethereum Wallet for Android</p>
-<p>    Copyright (C) 2017  Manuel S. Caspari</p>
+<p>    Ethersocial Wallet is a free and open source Ethersocial Wallet for Android</p>
+<p>    Copyright (C) 2018 TopMining</p>
 
 <p>    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -906,14 +909,14 @@ the "copyright" line and a pointer to where the full notice is found.</p>
     GNU General Public License for more details.</p>
 
 <p>    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.</p>
+    along with this program.  If not, see http://www.gnu.org/licenses.</p>
 
 <p>Also add information on how to contact you by electronic and paper mail.</p>
 
 <p> If the program does terminal interaction, make it output a short
 notice like this when it starts in an interactive mode:</p>
 
-<p>    Ethersocial Wallet  Copyright (C) 2017  Manuel S. Caspari
+<p>    Ethersocial Wallet  Copyright (C) 2018 TopMining
     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c for details.</p>
@@ -925,21 +928,24 @@ might be different; for a GUI interface, you would use an "about box".</p>
 <p>  You should also get your employer (if you work as a programmer) or school,
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU GPL, see
-<http://www.gnu.org/licenses/>.</p>
+http://www.gnu.org/licenses.</p>
 
 <p>  The GNU General Public License does not permit incorporating your program
 into proprietary programs.  If your program is a subroutine library, you
 may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
-<http://www.gnu.org/philosophy/why-not-lgpl.html>.</p>
+http://www.gnu.org/philosophy/why-not-lgpl.html.</p>
 
 <p><h2>Privacy Policy - Ethersocial Wallet</h2></p>
 
 <p><b>Data protection</b></p>
 
-<p>We do not collect or save any of your private data by ourself as we do not communicate with a server owned by us. Information just as account balances, transaction histories and other similar to Ethereum related information are part of a public available and distributed ledger called "Blockchain". This information is not stored by us on any of our servers, the mentioned information is fetched from this Blockchain via a third party service called etherscan.io. You also agree to this etherscan.io privacy policy as found here: <a href="https://etherscan.io/terms">https://etherscan.io/terms</a>
-We use the etherscan.io service to fetch Blockchain information and use it to display it to you via our app. Your Wallets, including its private keys, which are generated by this app are stored only locally on your device and are never shared or transmitted via web.
+<p>We do not collect or save any of your private data.
+Information just as account balances, transaction histories and other similar to Ethersocial related information are part of a public available and distributed ledger called "Blockchain".
+This information is not stored by us on any of our servers, the mentioned information is fetched from this Blockchain via a third party service called esn-api.topmining.co.kr.
+We use the esn-api.topmining.co.kr service to fetch Blockchain information and use it to display it to you via our app.
+Your Wallets, including its private keys, which are generated by this app are stored only locally on your device and are never shared or transmitted via web.
 If there are further questions please don\t hesitate to contact us as we are happy to help you in this regard.
 For app usage statistics we use Google Analytics. More details about Google Analytics can be found in the paragraph "Privacy Policy for the use of Google Analytics".</p>
 

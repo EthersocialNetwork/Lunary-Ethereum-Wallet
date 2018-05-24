@@ -1,6 +1,7 @@
 package rehanced.com.simpleetherwallet.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,14 +30,14 @@ public class TokenAdapter extends RecyclerView.Adapter<TokenAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name, nativebalance, etherbalance, shorty;
-        public TextView image;
+        public ImageView image;
         public LinearLayout container;
 
         public MyViewHolder(View view) {
             super(view);
             nativebalance = (TextView) view.findViewById(R.id.nativebalance);
             name = (TextView) view.findViewById(R.id.tokenname);
-            image = (TextView) view.findViewById(R.id.addressimage);
+            image = (ImageView) view.findViewById(R.id.addressimage);
             etherbalance = (TextView) view.findViewById(R.id.etherbalance);
             container = (LinearLayout) view.findViewById(R.id.container);
         }
@@ -85,14 +87,20 @@ public class TokenAdapter extends RecyclerView.Adapter<TokenAdapter.MyViewHolder
                                 ExchangeCalculator.getInstance().getCurrent().getRate()
                         )) + " " + ExchangeCalculator.getInstance().getCurrent().getShorty());
         if (box.getContractAddr() != null && box.getContractAddr().length() > 3) {
-            holder.image.setText("");
+            //holder.image.setText("");
             String iconName = box.getName();
             if (iconName.indexOf(" ") > 0)
                 iconName = iconName.substring(0, iconName.indexOf(" "));
-            holder.image.setBackground(new BitmapDrawable(context.getResources(), TokenIconCache.getInstance(context).get(iconName)));
+            //holder.image.setBackground(new BitmapDrawable(context.getResources(), TokenIconCache.getInstance(context).get(iconName)));
+            Bitmap bmp = TokenIconCache.getInstance(context).get(iconName);
+            if(bmp != null)
+                holder.image.setImageDrawable(new BitmapDrawable(context.getResources(), bmp));
+            else
+                holder.image.setImageBitmap(Blockies.createIcon(box.getContractAddr().toLowerCase()));
         } else {
-            holder.image.setText("Ξ");
-            holder.image.setBackgroundResource(0);
+            //holder.image.setText("Ξ");
+            //holder.image.setBackgroundResource(0);
+            holder.image.setImageResource(R.drawable.ethersocial_token);
             holder.etherbalance.setText(
                     ExchangeCalculator.getInstance().displayEthNicely(
                             ExchangeCalculator.getInstance().convertRate(tbalance, ExchangeCalculator.getInstance().getCurrent().getRate())) + " " +
