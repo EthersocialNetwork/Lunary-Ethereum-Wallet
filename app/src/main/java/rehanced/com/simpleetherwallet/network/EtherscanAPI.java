@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +34,17 @@ public class EtherscanAPI {
     private String token;
 
     private static EtherscanAPI instance;
+
+    // EIP155 대응
+    public static int eip155_block = 845000;
+    public static int chainId = 31102;
+    public static int eip155Testnet_block = 204000;
+    public static int chainIdTestnet = 131102;
+    public static boolean useEip155 = false;
+
+    // Test Net
+    public static boolean useTestNet = false;
+    public static String pathTestNet = "";
 
     public static EtherscanAPI getInstance() {
         if (instance == null)
@@ -75,21 +89,21 @@ public class EtherscanAPI {
     public void getNormalTransactions(String address, Callback b, boolean force) throws IOException {
         if (!force && RequestCache.getInstance().contains(RequestCache.TYPE_TXS_NORMAL, address)) {
             b.onResponse(null, new Response.Builder().code(200).message("").request(new Request.Builder()
-                    .url("https://esn-api.topmining.co.kr/get_transaction.php?account=" + address)
+                    .url("https://esn-api.topmining.co.kr/" + pathTestNet + "get_transaction?account=" + address)
                     .build()).protocol(Protocol.HTTP_1_0).body(ResponseBody.create(MediaType.parse("JSON"), RequestCache.getInstance().get(RequestCache.TYPE_TXS_NORMAL, address))).build());
             return;
         }
-        get("https://esn-api.topmining.co.kr/get_transaction.php?account=" + address, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_transaction?account=" + address, b);
     }
 
 
     public void getEtherPrice(Callback b) throws IOException {
-        // get("http://api.etherscan.io/api?module=stats&action=ethprice&apikey=" + token, b);
+        get("http://esn-api.topmining.co.kr/" + pathTestNet + "get_price", b);
     }
 
 
     public void getGasPrice(Callback b) throws IOException {
-        get("https://esn-api.topmining.co.kr/get_gasprice.php", b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_gasprice", b);
     }
 
 
@@ -104,11 +118,11 @@ public class EtherscanAPI {
     public void getTokenBalances(String address, Callback b, boolean force) throws IOException {
         if (!force && RequestCache.getInstance().contains(RequestCache.TYPE_TOKEN, address)) {
             b.onResponse(null, new Response.Builder().code(200).message("").request(new Request.Builder()
-                    .url("https://esn-api.topmining.co.kr/get_token.php?address=" + address)
+                    .url("https://esn-api.topmining.co.kr/" + pathTestNet + "" + pathTestNet + "get_token?address=" + address)
                     .build()).protocol(Protocol.HTTP_1_0).body(ResponseBody.create(MediaType.parse("JSON"), RequestCache.getInstance().get(RequestCache.TYPE_TOKEN, address))).build());
             return;
         }
-        get("https://esn-api.topmining.co.kr/get_token.php?address=" + address, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_token?address=" + address, b);
     }
 
 
@@ -127,7 +141,7 @@ public class EtherscanAPI {
         if (TokenIconCache.getInstance(c).contains(tokenName)) return;
 
         final String tokenNamef = tokenName;
-        get("https://esn-api.topmining.co.kr/token/images/" + tokenNamef + ".png", new Callback() {
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "token/images/" + tokenNamef + ".png", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
             }
@@ -148,27 +162,47 @@ public class EtherscanAPI {
 
 
     public void getGasLimitEstimate(String to, Callback b) throws IOException {
-        get("https://esn-api.topmining.co.kr/get_estimategas.php?to=" + to + "&value=0xff22", b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_estimategas?to=" + to + "&value=0xff22", b);
     }
 
+    // 현재 블록이 EIP155블록에 도달했는지 확인하여 useEip155를 활성화 시킨다.
+    public void checkBlockNumber() throws IOException {
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_blocknumber", new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                // 블록번호를 가져오지 못한 경우
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    int blockNumber = new JSONObject(response.body().toString()).getJSONObject("result").getInt("blocknumber");
+                    if ((useTestNet && blockNumber >= eip155Testnet_block) || (!useTestNet && blockNumber >= eip155_block)) {
+                        useEip155 = true;
+                    }
+                }
+                catch (JSONException e) { }
+            }
+        });
+    }
 
     public void getBalance(String address, Callback b) throws IOException {
-        get("https://esn-api.topmining.co.kr/get_balance.php?account=" + address, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_balance?account=" + address, b);
     }
 
 
     public void getNonceForAddress(String address, Callback b) throws IOException {
-        get("https://esn-api.topmining.co.kr/get_transactioncount.php?address=" + address, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_transactioncount?address=" + address, b);
     }
 
 
     public void getPriceConversionRates(String currencyConversion, Callback b) throws IOException {
-        // get("https://api.fixer.io/latest?base=USD&symbols=" + currencyConversion, b);
+        get("http://esn-api.topmining.co.kr/" + pathTestNet + "get_exchange?currency=" + currencyConversion, b);
     }
 
 
     public void getBalances(ArrayList<StorableWallet> addresses, Callback b) throws IOException {
-        String url = "https://esn-api.topmining.co.kr/get_balances.php?accounts=";
+        String url = "https://esn-api.topmining.co.kr/" + pathTestNet + "get_balances?accounts=";
         for (StorableWallet address : addresses)
             url += address.getPubKey() + ",";
         url = url.substring(0, url.length() - 1); // remove last
@@ -177,7 +211,7 @@ public class EtherscanAPI {
 
 
     public void forwardTransaction(String raw, Callback b) throws IOException {
-        get("https://esn-api.topmining.co.kr/send_rawtransaction.php?data=" + raw , b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "send_rawtransaction?data=" + raw , b);
     }
 
 

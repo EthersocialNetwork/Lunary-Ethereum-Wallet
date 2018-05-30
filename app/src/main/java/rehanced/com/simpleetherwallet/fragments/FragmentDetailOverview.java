@@ -201,6 +201,7 @@ public class FragmentDetailOverview extends Fragment implements View.OnClickList
                 }
             });
         }
+
         try {
             update(false);
         } catch (IOException e) {

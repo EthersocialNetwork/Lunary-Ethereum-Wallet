@@ -24,6 +24,16 @@
                 android:layout_gravity="center"
                 android:id="@+id/qrcode" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="@string/to_clipboard"/>
+
             <Button
                 android:id="@+id/copytoclip"
                 android:layout_width="match_parent"

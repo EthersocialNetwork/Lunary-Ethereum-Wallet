@@ -264,6 +264,7 @@
 
     <string name="scan_address">주소 스캔하기</string>
     <string name="add_wallet">지갑 추가</string>
+    <string name="to_clipboard">QR 코드를 누르면 지갑주소를 클립보드로 복사할 수 있습니다.</string>
 
     <string name="legal">이용약관</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[

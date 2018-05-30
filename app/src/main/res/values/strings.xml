@@ -264,6 +264,7 @@
 
     <string name="scan_address">Scan Address</string>
     <string name="add_wallet">ADD WALLET</string>
+    <string name="to_clipboard">You can copy the wallet address to the clipboard by pressing the QR code.</string>
 
     <string name="legal">Legal</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[
