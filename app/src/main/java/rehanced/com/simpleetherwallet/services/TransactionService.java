@@ -80,7 +80,10 @@ public class TransactionService extends IntentService {
                                         "Data: " + tx.getData()
                         );
 
-                        byte[] signed = TransactionEncoder.signMessage(tx, keys);
+                        byte[] signed =
+                                EtherscanAPI.useEip155 ?
+                                        TransactionEncoder.signMessage(tx, (byte) ( EtherscanAPI.useTestNet ? EtherscanAPI.chainIdTestnet : EtherscanAPI.chainId), keys) :     // EIP155 활성화
+                                        TransactionEncoder.signMessage(tx, keys);
 
                         forwardTX(signed);
                     } catch (Exception e) {

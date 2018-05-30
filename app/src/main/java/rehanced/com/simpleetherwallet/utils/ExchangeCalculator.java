@@ -189,7 +189,6 @@ public class ExchangeCalculator {
                 conversionNames[2].setShorty("¥");
             else if (currency.equals("KRW")) {
                 conversionNames[2].setShorty("￦");
-                conversionNames[2].setRate(500);
             }
             else
                 conversionNames[2].setShorty(currency);
@@ -206,8 +205,9 @@ public class ExchangeCalculator {
                 try {
                     JSONObject data = new JSONObject(response.body().string()).getJSONObject("result");
 
-                    conversionNames[1].setRate(data.getDouble("ethbtc"));
-                    conversionNames[2].setRate(data.getDouble("ethusd"));
+                    conversionNames[1].setRate(data.getDouble("esnbtc"));
+                    conversionNames[2].setRate(data.getDouble("esnusd"));
+
                     if (!currency.equals("USD"))
                         convert(currency, update);
                     else
