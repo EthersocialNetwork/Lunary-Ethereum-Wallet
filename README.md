@@ -43,6 +43,8 @@ http://esn-api.topmining.co.kr/get_transactioncount.php?address=[wallet_address]
 http://esn-api.topmining.co.kr/get_estimategas.php?to=[wallet_address]&value=[amount]  
 http://esn-api.topmining.co.kr/send_rowtransaction.php?data=[raw_data]  
 http://esn-api.topmining.co.kr/get_token?address=[wallet_address]  
+http://esn-api.topmining.co.kr/get_price  
+http://esn-api.topmining.co.kr/get_exchange?currency=krw  
 
 ## Donations / Support
 TopMining  
