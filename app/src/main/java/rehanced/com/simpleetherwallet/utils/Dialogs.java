@@ -208,7 +208,7 @@ public class Dialogs {
         openInBrowser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "https://ethersocial.net/tx/" + tx.getTxHash();
+                String url = "https://ethersocial.net/tx/0x" + tx.getTxHash();
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 c.startActivity(i);
