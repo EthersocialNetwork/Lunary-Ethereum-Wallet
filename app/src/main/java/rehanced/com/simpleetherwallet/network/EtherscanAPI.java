@@ -197,7 +197,7 @@ public class EtherscanAPI {
 
 
     public void getPriceConversionRates(String currencyConversion, Callback b) throws IOException {
-        get("http://esn-api.topmining.co.kr/" + pathTestNet + "get_exchange?currency=" + currencyConversion, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_exchange?currency=" + currencyConversion, b);
     }
 
 

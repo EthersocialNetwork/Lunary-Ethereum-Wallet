@@ -17,6 +17,7 @@
     <string name="drawer_import">Import Wallets</string>
     <string name="drawer_about">About Us</string>
     <string name="drawer_donate">Donate</string>
+    <string name="drawer_version">Version</string>
 
     <string name="fr_price_current_price">Current Price</string>
     <string name="fr_wallet_overall_balance">Overall Balance</string>
@@ -265,6 +266,9 @@
     <string name="scan_address">Scan Address</string>
     <string name="add_wallet">ADD WALLET</string>
     <string name="to_clipboard">You can copy the wallet address to the clipboard by pressing the QR code.</string>
+
+    <string name="invalid_recipient">Invalid Recipient</string>
+    <string name="insufficient_funds">Insufficient funds for gas * price + value</string>
 
     <string name="legal">Legal</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[

@@ -276,16 +276,18 @@ public class FragmentSend extends Fragment {
 
                 @Override
                 public void onResponse(Call call, final Response response) throws IOException {
+                    try {
+                        String data = response.body().string();
+                        curAvailable = new BigDecimal(ResponseParser.parseBalance(data, 6));
+                    } catch (Exception e) {
+                        ac.snackError("Cant fetch your account balance");
+                        e.printStackTrace();
+                    }
+
                     ac.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            try {
-                                curAvailable = new BigDecimal(ResponseParser.parseBalance(response.body().string(), 6));
-                                updateDisplays();
-                            } catch (Exception e) {
-                                ac.snackError("Cant fetch your account balance");
-                                e.printStackTrace();
-                            }
+                            updateDisplays();
                         }
                     });
                 }
