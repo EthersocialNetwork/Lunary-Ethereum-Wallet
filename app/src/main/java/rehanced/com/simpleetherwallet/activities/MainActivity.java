@@ -3,6 +3,7 @@ package rehanced.com.simpleetherwallet.activities;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -122,6 +123,14 @@ public class MainActivity extends SecureAppCompatActivity implements NetworkUpda
 
         if (!((AnalyticsApplication) this.getApplication()).isGooglePlayBuild()) {
             wip.addDrawerItems(new PrimaryDrawerItem().withName(getResources().getString(R.string.drawer_donate)).withIcon(R.drawable.ic_action_donate));
+        }
+
+        try {
+            PackageInfo pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = version = pInfo.versionName;
+            wip.addDrawerItems(new PrimaryDrawerItem().withName(getResources().getString(R.string.drawer_version) + " " + version));
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
 
         Drawer result = wip.build();

@@ -115,9 +115,15 @@ public class TransactionService extends IntentService {
                     // Advanced error handling. If etherscan returns error message show the shortened version in notification. Else abbort with unknown error
                     try {
                         String errormsg = new JSONObject(received).getJSONObject("error").getString("message");
-                        if (errormsg.indexOf(".") > 0)
-                            errormsg = errormsg.substring(0, errormsg.indexOf("."));
-                        error(errormsg); // f.E Insufficient funds
+                        int code = new JSONObject(received).getJSONObject("error").getInt("code");
+                        if(code == -32000) { // f.E Insufficient funds
+                            error(getString(R.string.insufficient_funds));
+                        }
+                        else {
+                            if (errormsg.indexOf(".") > 0)
+                                errormsg = errormsg.substring(0, errormsg.indexOf("."));
+                            error(errormsg);
+                        }
                     } catch (JSONException e1) {
                         error("Unknown error occured");
                     }
