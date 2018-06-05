@@ -7,6 +7,7 @@ package rehanced.com.simpleetherwallet.utils;
 import rehanced.com.simpleetherwallet.BuildConfig;
 
 public class Key {
+    /*
     private String q;
     private String s;
     private final String g = "9ZUSL64LS9POL3J2MVKR0ES1MBQHSFUOKK";
@@ -37,4 +38,5 @@ public class Key {
     public String toString() {
         return q;
     }
+    */
 }

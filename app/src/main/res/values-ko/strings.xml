@@ -45,6 +45,8 @@
     <string name="pref_currencys_title">표시 통화</string>
     <string-array name="pref_currencys">
         <item>USD</item>
+        <item>KRW</item>
+<!--
         <item>EUR</item>
         <item>CHF</item>
         <item>GBP</item>
@@ -52,7 +54,7 @@
         <item>CAD</item>
         <item>JPY</item>
         <item>RUB</item>
-        <item>KRW</item>
+-->
     </string-array>
 
     <string-array name="pref_sync_frequency_titles">
@@ -137,7 +139,7 @@
     <string name="walletgen_title">지갑 생성</string>
     <string name="request_ether_title">이더소셜 받기 요청</string>
     <string name="qr_scan_title">QR 주소</string>
-    <string name="activity_send_title">내역</string>
+    <string name="activity_send_title">전송</string>
     <string name="last_24_hours">최근 24시간</string>
     <string name="last_7_days">최근 7일</string>
     <string name="last_30_days">최근 30일</string>
@@ -259,6 +261,9 @@
 
     <string name="about_us">이더소셜 지갑 소개</string>
     <string name="about_us_message">이더소셜 지갑은 GPL3 라이센스로 제공되며 탑마이닝에서 제작하였습니다.\nEthereum Foundation (CC A 3.0)에 따른 아이콘 사용\n코인/토큰 잔액을 확인하기 위해 esn-api.topmining.co.kr의 API를 사용\n\n이 앱은 Lunary를 기반으로 제작되었으며 상세한 정보는 https://github.com/topmining/ethersocial-mobile-wallet 에서 확인할 수 있습니다.</string>
+
+    <string name="scan_address">주소 스캔하기</string>
+    <string name="add_wallet">지갑 추가</string>
 
     <string name="legal">이용약관</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[

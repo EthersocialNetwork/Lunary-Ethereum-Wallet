@@ -45,6 +45,8 @@
     <string name="pref_currencys_title">Display Currency</string>
     <string-array name="pref_currencys">
         <item>USD</item>
+        <item>KRW</item>
+<!--
         <item>EUR</item>
         <item>CHF</item>
         <item>GBP</item>
@@ -52,7 +54,7 @@
         <item>CAD</item>
         <item>JPY</item>
         <item>RUB</item>
-        <item>KRW</item>
+-->
     </string-array>
 
     <string-array name="pref_sync_frequency_titles">
@@ -259,6 +261,9 @@
 
     <string name="about_us">About Ethersocial Wallet</string>
     <string name="about_us_message">Ethersocial Wallet is published under GPL3\nDeveloped by TopMining.\nEthersocial Foundation for usage of the icon according to (CC A 3.0)\Coin or Token balances powered by esn-api.topmining.co.kr\nThis app is based on Lunary and you can find more details in https://github.com/topmining/ethersocial-mobile-wallet</string>
+
+    <string name="scan_address">Scan Address</string>
+    <string name="add_wallet">ADD WALLET</string>
 
     <string name="legal">Legal</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[

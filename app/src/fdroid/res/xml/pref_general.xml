@@ -36,9 +36,9 @@
         android:entries="@array/pref_currencys"
         android:entryValues="@array/pref_currencys"
         android:key="maincurrency"
-        android:summary="%s"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
+        android:summary="%s"
         android:title="@string/pref_currencys_title" />
 
     <PreferenceCategory android:title="@string/prefs_cat_security">
