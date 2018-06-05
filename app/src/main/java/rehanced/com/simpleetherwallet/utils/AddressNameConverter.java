@@ -32,11 +32,11 @@ public class AddressNameConverter {
         try {
             load(context);
             if (!contains("0xeacac2c75920b8f6e65f37ad81deb113d526d031")) {
-                put("0xeacac2c75920b8f6e65f37ad81deb113d526d031", "Ethersocial Development ✓", context);
+                put("0xeacac2c75920b8f6e65f37ad81deb113d526d031", "TopMining ✓", context);
             }
         } catch (Exception e) {
             addressbook = new HashMap<String, String>();
-            put("0xeacac2c75920b8f6e65f37ad81deb113d526d031", "Ethersocial Development ✓", context);
+            put("0xeacac2c75920b8f6e65f37ad81deb113d526d031", "TopMining ✓", context);
         }
         wellknown_addresses = new WellKnownAddresses();
     }

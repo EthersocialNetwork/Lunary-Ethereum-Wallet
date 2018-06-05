@@ -438,7 +438,7 @@ public class MainActivity extends SecureAppCompatActivity implements NetworkUpda
                     Dialogs.noFullWallet(this);
                 } else {
                     Intent donate = new Intent(this, SendActivity.class);
-                    donate.putExtra("TO_ADDRESS", "0xa9981a33f6b1A18da5Db58148B2357f22B44e1e0");
+                    donate.putExtra("TO_ADDRESS", "0xEaCaC2C75920B8f6e65F37aD81dEb113D526D031");
                     startActivity(donate);
                 }
                 break;
