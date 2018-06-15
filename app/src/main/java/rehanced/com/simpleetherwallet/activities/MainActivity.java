@@ -3,6 +3,7 @@ package rehanced.com.simpleetherwallet.activities;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -122,6 +123,14 @@ public class MainActivity extends SecureAppCompatActivity implements NetworkUpda
 
         if (!((AnalyticsApplication) this.getApplication()).isGooglePlayBuild()) {
             wip.addDrawerItems(new PrimaryDrawerItem().withName(getResources().getString(R.string.drawer_donate)).withIcon(R.drawable.ic_action_donate));
+        }
+
+        try {
+            PackageInfo pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = version = pInfo.versionName;
+            wip.addDrawerItems(new PrimaryDrawerItem().withName(getResources().getString(R.string.drawer_version) + " " + version));
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
 
         Drawer result = wip.build();
@@ -421,35 +430,15 @@ public class MainActivity extends SecureAppCompatActivity implements NetworkUpda
             }
             case 3: {
                 new AlertDialog.Builder(this)
-                        .setTitle("About Lunary")
-                        .setMessage("Lunary is published under GPL3\n" +
-                                "Developed by Manuel S. C. for Rehanced, 2017\n"
-                                + "www.rehanced.com\n" +
-                                getString(R.string.translator_name) + "\n" +
-                                "\nCredits:\n" +
-                                "MaterialDrawer by Mike Penz\n" +
-                                "MPAndroidChart by Philipp Jahoda\n" +
-                                "Mobile Vision Barcode Scanner by KingsMentor\n" +
-                                "XZING\n" +
-                                "FloatingActionButton by Dmytro Tarianyk\n" +
-                                "RateThisApp by Keisuke Kobayashi\n" +
-                                "AppIntro by Maximilian Narr\n" +
-                                "Material Dialogs by Aidan Michael Follestad\n" +
-                                "Poloniex for price data\n" +
-                                "Web3j by Conor Svensson\n" +
-                                "PatternLock by Zhang Hai\n" +
-                                "Ethereum Foundation for usage of the icon according to (CC A 3.0)\n" +
-                                "Powered by Etherscan.io APIs\n" +
-                                "Token balances powered by Ethplorer.io\n\n" +
-                                "Lunary is published under GPL3\n" +
-                                "This app is not associated with Ethereum or the Ethereum Foundation in any way. Lunary is an independend wallet app.")
+                        .setTitle(getString(R.string.about_us))
+                        .setMessage(getString(R.string.about_us_message))
                         .setIcon(android.R.drawable.ic_dialog_info)
                         .show();
                 break;
             }
             case 4: {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://www.reddit.com/r/lunary"));
+                i.setData(Uri.parse("https://discordapp.com/channels/422563901364895761/422571103299305472"));
                 startActivity(i);
                 break;
             }
@@ -458,7 +447,7 @@ public class MainActivity extends SecureAppCompatActivity implements NetworkUpda
                     Dialogs.noFullWallet(this);
                 } else {
                     Intent donate = new Intent(this, SendActivity.class);
-                    donate.putExtra("TO_ADDRESS", "0xa9981a33f6b1A18da5Db58148B2357f22B44e1e0");
+                    donate.putExtra("TO_ADDRESS", "0xEaCaC2C75920B8f6e65F37aD81dEb113D526D031");
                     startActivity(donate);
                 }
                 break;

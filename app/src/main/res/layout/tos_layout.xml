@@ -13,7 +13,7 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:paddingLeft="32dp"
-        android:text="Legal"
+        android:text="@string/legal"
         android:paddingRight="32dp"
         android:textColor="@android:color/white"
         android:textSize="28sp" />
@@ -33,12 +33,16 @@
                 android:id="@+id/tostext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tos"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:textSize="14sp"
-                android:textColor="#ffffff" />
+                android:autoLink="web"
+                android:background="#ffffff"
+                android:padding="5dp"
+                android:text="@string/tos"
+                android:textColor="#404040"
+                android:textIsSelectable="true"
+                android:textSize="14sp" />
         </ScrollView>
 
         <CheckBox

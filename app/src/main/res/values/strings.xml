@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="translator_name"></string>
 
-    <string name="app_name">Lunary</string>
+    <string name="app_name">Ethersocial</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">Lunary</string>
+    <string name="title_activity_main">Ethersocial</string>
 
     <string name="fab_scan">Scan Address / Key</string>
     <string name="fab_add_watch">Lookup Address</string>
@@ -12,11 +12,12 @@
     <string name="fab_gen_new">Generate New Wallet</string>
     <string name="fab_request">Request</string>
     <string name="fab_send">Send</string>
-    <string name="fab_sendether">Send Ether</string>
+    <string name="fab_sendether">Send Ethersocial</string>
     <string name="fab_setwalletname">Set Wallet Name</string>
     <string name="drawer_import">Import Wallets</string>
     <string name="drawer_about">About Us</string>
     <string name="drawer_donate">Donate</string>
+    <string name="drawer_version">Version</string>
 
     <string name="fr_price_current_price">Current Price</string>
     <string name="fr_wallet_overall_balance">Overall Balance</string>
@@ -24,14 +25,14 @@
 
     <string name="main_ac_wallet_added_suc">Your wallet was added successfully</string>
     <string name="main_ac_wallet_added_er">Wallet was already added</string>
-    <string name="main_ac_wallet_added_fatal">Err Not a valid ethereum address</string>
+    <string name="main_ac_wallet_added_fatal">Err Not a valid ethersocial address</string>
     <string name="detail_acc_name_changed_suc">Wallet successfully renamed</string>
     <string name="title_activity_settings">Settings</string>
 
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Show zero amount transactions</string>
-    <string name="pref_description_social_recommendations">Whether to hide contract calls without any ether amount or not</string>
+    <string name="pref_description_social_recommendations">Whether to hide contract calls without any ethersocial amount or not</string>
 
 
     <string name="pref_title_start">Wallet as default tab</string>
@@ -45,6 +46,8 @@
     <string name="pref_currencys_title">Display Currency</string>
     <string-array name="pref_currencys">
         <item>USD</item>
+        <item>KRW</item>
+<!--
         <item>EUR</item>
         <item>CHF</item>
         <item>GBP</item>
@@ -52,6 +55,7 @@
         <item>CAD</item>
         <item>JPY</item>
         <item>RUB</item>
+-->
     </string-array>
 
     <string-array name="pref_sync_frequency_titles">
@@ -109,19 +113,19 @@
 
     <string name="choose_your_address">From</string>
     <string name="send_to">To</string>
-    <string name="choose_ether_amount">Available Ether</string>
+    <string name="choose_ether_amount">Available Ethersocial</string>
     <string name="choose_gas">Transaction Cost</string>
 
 
     <string name="request_activity_ether">Request Amount</string>
     <string name="request_activity_to">Your Wallets / Addresses</string>
 
-    <string name="no_tx_history">This is the transaction overview showing all ether sent and received to and from other people. After adding a wallet and transferring some ether to it, the transaction and all future transactions will be displayed here.</string>
+    <string name="no_tx_history">This is the transaction overview showing all ethersocial sent and received to and from other people. After adding a wallet and transferring some ethersocial to it, the transaction and all future transactions will be displayed here.</string>
     <string name="no_wallet_history">You currently do not have any wallets. You can easily create or import one using the button below.</string>
 
 
-    <string name="app_intro_text">Welcome to Lunary - the free and Open Source Ether Wallet for Android! Before starting, please take some time to read through our terms of service.</string>
-    <string name="app_intro_title">Lunary Wallet</string>
+    <string name="app_intro_text">Welcome to Ethersocial Wallet - the free and Open Source Ethersocial Wallet for Android! Before starting, please take some time to read through our terms of service.</string>
+    <string name="app_intro_title">Ethersocial Wallet</string>
     <string name="app_intro_please_agree">Please read and agree to the terms of service before proceeding</string>
     <string name="app_intro_iagree">I agree to terms of service</string>
     <string name="fragment_send_ether_amount">Amount</string>
@@ -134,7 +138,7 @@
     <string name="fragment_detail_add_sharing">Address Sharing</string>
     <string name="fragment_detail_share_button">Share</string>
     <string name="walletgen_title">Generate Wallet</string>
-    <string name="request_ether_title">Request Ether</string>
+    <string name="request_ether_title">Request Ethersocial</string>
     <string name="qr_scan_title">QR Address</string>
     <string name="activity_send_title">Transaction</string>
     <string name="last_24_hours">Last 24 Hours</string>
@@ -154,7 +158,7 @@
     <string name="button_ok">OK</string>
     <string name="wallet_removal_title">ATTENTION: Wallet Removal</string>
     <string name="wallet_removal_sure">Are you sure you want to delete your watch only wallet?</string>
-    <string name="wallet_removal_privkey">! THIS IS A WALLET WITH A PRIVATE KEY ! IF YOU HAVE NO BACKUP AND CONTINUE ALL YOUR ETHER ON THAT WALLET WILL BE LOST FOR EVER! ARE YOU SURE YOU WANT TO PROCEED? WALLET ADDRESS:</string>
+    <string name="wallet_removal_privkey">! THIS IS A WALLET WITH A PRIVATE KEY ! IF YOU HAVE NO BACKUP AND CONTINUE ALL YOUR ETHERSOCIAL ON THAT WALLET WILL BE LOST FOR EVER! ARE YOU SURE YOU WANT TO PROCEED? WALLET ADDRESS:</string>
     <string name="wallet_removal_last_warning">ARE YOU SURE? WALLET AND ALL COINS / TOKEN ON IT ARE GOING TO GET PERMANENTLY REMOVED. THIS IS THE LAST WARNING FOR WALLET:</string>
     <string name="button_yes">YES</string>
     <string name="button_no">NO</string>
@@ -166,7 +170,7 @@
     <string name="trans_menu_viewreceiver">View Receiver Address</string>
     <string name="trans_menu_openinb">Open in Browser</string>
     <string name="trans_no_trans_found">No transactions found for this address.</string>
-    <string name="err_send_not_enough_ether">Not enough Ether on that Address</string>
+    <string name="err_send_not_enough_ether">Not enough Ethersocial on that Address</string>
     <string name="err_send_invalidamount">Invalid Amount</string>
     <string name="err_send_noreceiver">No receiver specified</string>
     <string name="err_send_noamount">No amount specified</string>
@@ -180,22 +184,22 @@
     <string name="main_grant_permission_import">Please grant read permission to import Wallets</string>
     <string name="dialog_watch_only_title">Lookup Address</string>
     <string name="dialog_importing_wallets_title">Importing Wallets?</string>
-    <string name="dialog_importing_wallets_text">We have detected %1$d new wallet%2$s in our Lunary folder. Would you like to import: %3$s</string>
+    <string name="dialog_importing_wallets_text">We have detected %1$d new wallet%2$s in our \"Ethersocial\" folder. Would you like to import: %3$s</string>
     <string name="dialog_ex_nofull_title">No Full Wallet</string>
     <string name="dialog_ex_nofull_text">Watch only wallets can not be exported.</string>
     <string name="dialog_exporting_title">Exporting your Wallet</string>
-    <string name="dialog_exporting_text">A copy of your Ethereum wallet will be placed inside the folder \"Lunary\" in the root directory of your Android phone. Please note that other applications that run on your device can technically access any wallets that you have exported. Due to this, we highly recommend erasing all exported wallets from the Lunary folder as soon as you have finished backing them up.</string>
+    <string name="dialog_exporting_text">A copy of your Ethersocial wallet will be placed inside the folder \"Ethersocial\" in the root directory of your Android phone. Please note that other applications that run on your device can technically access any wallets that you have exported. Due to this, we highly recommend erasing all exported wallets from the \"Ethersocial\" folder as soon as you have finished backing them up.</string>
     <string name="dialog_nofullwallet">No Full Wallet</string>
     <string name="dialog_nofullwallet_text">In order to send funds you need a full wallet with a private key. Please generate or import one first.</string>
     <string name="dialog_no_wallets">No Wallets</string>
     <string name="dialog_no_wallets_text">In order to request funds you need a wallet or a watch only address.</string>
     <string name="dialog_no_wallets_found">No Wallets Found</string>
-    <string name="dialog_no_wallets_found_text">Please place the wallet you want to import inside the Lunary folder and make sure it is correctly named. When importing from Mist or other desktop client you don\'t have to rename your wallet.</string>
-    <string name="notification_ticker">Incoming Ether Transaction…</string>
+    <string name="dialog_no_wallets_found_text">Please place the wallet you want to import inside the \"Ethersocial\" folder and make sure it is correctly named. When importing from Mist or other desktop client you don\'t have to rename your wallet.</string>
+    <string name="notification_ticker">Incoming Ethersocial Transaction…</string>
     <string name="notification_transfersuc">Transfer successful</string>
     <string name="notification_transferfail">Transfer Failed</string>
-    <string name="notification_transferingticker">Transferring Ether…</string>
-    <string name="notification_transfering_title">Transferring Ether</string>
+    <string name="notification_transferingticker">Transferring Ethersocial…</string>
+    <string name="notification_transfering_title">Transferring Ethersocial</string>
     <string name="notification_might_take_a_minute">This might take a minute</string>
     <string name="notification_wallgen_maytake">This may take a couple minutes</string>
     <string name="notification_wallgen_title">Generating Wallet…</string>
@@ -203,14 +207,14 @@
     <string name="notification_wallgen_finished">Wallet Creation Finished!</string>
     <string name="notification_wallimp_finished">Wallet Import Finished!</string>
     <string name="notification_click_to_view">Click to view</string>
-    <string name="ether_and_token">Ether and Token</string>
+    <string name="ether_and_token">Ethersocial and Token</string>
     <string name="prefs_lock_with_pw">Lock with Password</string>
-    <string name="prefs_lock_with_pw_sum">If enabled Lunary will ask you for a password before launching the app</string>
+    <string name="prefs_lock_with_pw_sum">If enabled Ethersocial Wallet will ask you for a password before launching the app</string>
     <string name="prefs_set_pw">Set Password</string>
     <string name="prefs_set_pw_sum">Specify your login pattern</string>
     <string name="prefs_cat_security">Security</string>
-    <string name="fab_sendether_from">Send Ether From</string>
-    <string name="fab_sendether_to">Send Ether To</string>
+    <string name="fab_sendether_from">Send Ethersocial From</string>
+    <string name="fab_sendether_to">Send Ethersocial To</string>
     <string name="open_in_browser">Open in Browser</string>
     <string name="tx_cost">TX Cost</string>
     <string name="gas_used">Gas Used</string>
@@ -233,7 +237,7 @@
     <string name="send_expert_warning">You can add extra data to send along with your transaction. If you don\'t know what this is then don\'t touch it or bad things may happen!</string>
     <string name="expert_mode_optional">Expert Mode (Optional)</string>
     <string name="transaction_failed">Transaction failed</string>
-    <string name="reddit">Lunary Subreddit</string>
+    <string name="reddit">Ethersocial Wallet Discord</string>
     <string name="add">Add</string>
     <string name="show">Show</string>
     <string name="setting_erc_qr_encoding">Use ERC-67 QR Encoding</string>
@@ -241,28 +245,38 @@
     <string name="password_in_clear_text">Show Password in clear text</string>
 
     <string name="dialog_write_down_pw_title">Important!</string>
-    <string name="dialog_write_down_pw_text">Lunary will encrypt your Wallet with the password your provided to keep your ether safe. Your password is literally the only way to unlock your wallet and spend your ether, so make sure you dont forget it! We suggest to write it down on a piece of paper.</string>
+    <string name="dialog_write_down_pw_text">Ethersocial Wallet will encrypt your Wallet with the password your provided to keep your ethersocial safe. Your password is literally the only way to unlock your wallet and spend your ethersocial, so make sure you dont forget it! We suggest to write it down on a piece of paper.</string>
     <string name="dialog_back_button">Cancel</string>
     <string name="setting_show_ad">Display Ads</string>
 
     <string name="dialog_disable_ad_title">:(</string>
-    <string name="dialog_disable_ad_text">We depend heavily on donations and ad revenue to actively work and improve Lunary. If the ad really bothers you that much thats fine, we understand that and we will let you disable it. But if it isnt too much to ask we would like to change your mind to keep Lunary getting better and better. This small ad banner really helps us, same goes for every donation we receive. Please keep the banner enabled or consider a small donation. You need to restart the app for your new setting to take affect. Continue?</string>
+    <string name="dialog_disable_ad_text">We depend heavily on donations and ad revenue to actively work and improve Ethersocial Wallet. If the ad really bothers you that much thats fine, we understand that and we will let you disable it. But if it isnt too much to ask we would like to change your mind to keep Ethersocial Wallet getting better and better. This small ad banner really helps us, same goes for every donation we receive. Please keep the banner enabled or consider a small donation. You need to restart the app for your new setting to take affect. Continue?</string>
 
     <string name="showcase_got_it">GOT IT</string>
     <string name="show_case_wallet_gen_text">To generate a new wallet just press on the + and select "Generate New Wallet"</string>
     <string name="show_case_backup">To modify existing wallets or create a backup just press and hold down on the wallet.</string>
     <string name="wallet_menu_private_key">Show Private Key</string>
     <string name="activity_private_key_title">Private Key</string>
-    <string name="activity_private_key_explanation">This is the unencrypted private key of your wallet. Anyone with access to this key or QR code can spend your funds like ether and tokens. Dont store this unencrypted!</string>
+    <string name="activity_private_key_explanation">This is the unencrypted private key of your wallet. Anyone with access to this key or QR code can spend your funds like ethersocial and tokens. Dont store this unencrypted!</string>
     <string name="activity_private_key_wrong_pw">Your password is not correct - cant decrypt private key!</string>
 
+    <string name="about_us">About Ethersocial Wallet</string>
+    <string name="about_us_message">Ethersocial Wallet is published under GPL3\nDeveloped by TopMining.\nEthersocial Foundation for usage of the icon according to (CC A 3.0)\Coin or Token balances powered by esn-api.topmining.co.kr\nThis app is based on Lunary and you can find more details in https://github.com/topmining/ethersocial-mobile-wallet</string>
 
+    <string name="scan_address">Scan Address</string>
+    <string name="add_wallet">ADD WALLET</string>
+    <string name="to_clipboard">You can copy the wallet address to the clipboard by pressing the QR code.</string>
+
+    <string name="invalid_recipient">Invalid Recipient</string>
+    <string name="insufficient_funds">Insufficient funds for gas * price + value</string>
+
+    <string name="legal">Legal</string>
     <string name="tos" tools:ignore="TypographyOther"><![CDATA[
 <p><h2>GNU GENERAL PUBLIC LICENSE</h2></p>
 <p>Version 3, 29 June 2007</p>
 
-<p> Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
+<p> Copyright (C) 2007 Free Software Foundation, Inc. http://fsf.org</p>
+<p>Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.</p>
 
                             <p>Preamble</p>
@@ -600,6 +614,8 @@ documented (and with an implementation available to the public in
 source code form), and must require no special password or key for
 unpacking, reading or copying.</p>
 
+]]></string>
+    <string name="tos2" tools:ignore="TypographyOther"><![CDATA[
 <p> <h3> 7. Additional Terms.</h3></p>
 
 <p>  "Additional permissions" are terms that supplement the terms of this
@@ -891,8 +907,8 @@ to attach them to the start of each source file to most effectively
 state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.</p>
 
-<p>    Lunary is a free and open source Ethereum Wallet for Android</p>
-<p>    Copyright (C) 2017  Manuel S. Caspari</p>
+<p>    Ethersocial Wallet is a free and open source Ethersocial Wallet for Android</p>
+<p>    Copyright (C) 2018 TopMining</p>
 
 <p>    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -905,14 +921,14 @@ the "copyright" line and a pointer to where the full notice is found.</p>
     GNU General Public License for more details.</p>
 
 <p>    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.</p>
+    along with this program.  If not, see http://www.gnu.org/licenses.</p>
 
 <p>Also add information on how to contact you by electronic and paper mail.</p>
 
 <p> If the program does terminal interaction, make it output a short
 notice like this when it starts in an interactive mode:</p>
 
-<p>    Lunary Ethereum Wallet  Copyright (C) 2017  Manuel S. Caspari
+<p>    Ethersocial Wallet  Copyright (C) 2018 TopMining
     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c for details.</p>
@@ -924,35 +940,36 @@ might be different; for a GUI interface, you would use an "about box".</p>
 <p>  You should also get your employer (if you work as a programmer) or school,
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU GPL, see
-<http://www.gnu.org/licenses/>.</p>
+http://www.gnu.org/licenses.</p>
 
 <p>  The GNU General Public License does not permit incorporating your program
 into proprietary programs.  If your program is a subroutine library, you
 may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
-<http://www.gnu.org/philosophy/why-not-lgpl.html>.</p>
+http://www.gnu.org/philosophy/why-not-lgpl.html.</p>
 
-<p><h2>Privacy Policy - Lunary Ether Wallet</h2></p>
+<p><h2>Privacy Policy - Ethersocial Wallet</h2></p>
 
 <p><b>Data protection</b></p>
 
-<p>We do not collect or save any of your private data by ourself as we do not communicate with a server owned by us. Information just as account balances, transaction histories and other similar to Ethereum related information are part of a public available and distributed ledger called "Blockchain". This information is not stored by us on any of our servers, the mentioned information is fetched from this Blockchain via a third party service called etherscan.io. You also agree to this etherscan.io privacy policy as found here: <a href="https://etherscan.io/terms">https://etherscan.io/terms</a>
-We use the etherscan.io service to fetch Blockchain information and use it to display it to you via our app. Your Wallets, including its private keys, which are generated by this app are stored only locally on your device and are never shared or transmitted via web.
+<p>We do not collect or save any of your private data.
+Information just as account balances, transaction histories and other similar to Ethersocial related information are part of a public available and distributed ledger called "Blockchain".
+This information is not stored by us on any of our servers, the mentioned information is fetched from this Blockchain via a third party service called esn-api.topmining.co.kr.
+We use the esn-api.topmining.co.kr service to fetch Blockchain information and use it to display it to you via our app.
+Your Wallets, including its private keys, which are generated by this app are stored only locally on your device and are never shared or transmitted via web.
 If there are further questions please don\t hesitate to contact us as we are happy to help you in this regard.
 For app usage statistics we use Google Analytics. More details about Google Analytics can be found in the paragraph "Privacy Policy for the use of Google Analytics".</p>
 
 <p><b>Privacy Policy for the use of Google Analytics</b></p>
-<p>This section is only relevant for users that downloaded Lunary from Google Play or the \"Google Play flavor\" from Github. F-Droid and Amazon Appstore builds are compiled without Google Analytics!</p>
+<p>This section is only relevant for users that downloaded Ethersocial Wallet from Google Play or the \"Google Play flavor\" from Github. F-Droid and Amazon Appstore builds are compiled without Google Analytics!</p>
 <p>This app uses Google Analytics, an analytics service provided by Google, Inc. (“Google”). Google Analytics uses “cookies”, which are text files placed on your device, to help analyze how users use it. The information generated about your use of this app (including your IP address) is sent to and stored at a Google server in the U.S.A. Google will use this information on behalf of the operator of this app for the purpose of evaluating your use of the app, compiling reports on activity for operators and providing them other services relating to app activity and usage. The IP-address, that your device conveys within the scope of Google Analytics, will not be associated with any other data held by Google. For more information about Google Analytics visit <a href="https://google.com/analytics/terms">https://google.com/analytics/terms</a></p>
 
 
 <p>By using this application you agree to our Privicy Policy and the processing of the collected information by Google, according to the above mentioned purposes. If you do not consent to such processing, please do not further access or use our applications.
 More details about this topic can be found in Google\'s Privacy Policies:
 <a href="https://google.com/policies/privacy">https://google.com/policies/privacy</a> </p>
-
-]]></string>
-
+    ]]></string>
 
 
 </resources>

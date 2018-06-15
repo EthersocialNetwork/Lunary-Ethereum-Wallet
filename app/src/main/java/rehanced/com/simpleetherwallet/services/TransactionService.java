@@ -60,7 +60,7 @@ public class TransactionService extends IntentService {
                 public void onResponse(Call call, final Response response) throws IOException {
                     try {
                         JSONObject o = new JSONObject(response.body().string());
-                        BigInteger nonce = new BigInteger(o.getString("result").substring(2), 16);
+                        BigInteger nonce = new BigInteger(o.getJSONObject("result").getString("count").substring(2), 16);
 
                         RawTransaction tx = RawTransaction.createTransaction(
                                 nonce,
@@ -80,7 +80,10 @@ public class TransactionService extends IntentService {
                                         "Data: " + tx.getData()
                         );
 
-                        byte[] signed = TransactionEncoder.signMessage(tx, (byte) 1, keys);
+                        byte[] signed =
+                                EtherscanAPI.useEip155 ?
+                                        TransactionEncoder.signMessage(tx, (byte) ( EtherscanAPI.useTestNet ? EtherscanAPI.chainIdTestnet : EtherscanAPI.chainId), keys) :     // EIP155 활성화
+                                        TransactionEncoder.signMessage(tx, keys);
 
                         forwardTX(signed);
                     } catch (Exception e) {
@@ -112,9 +115,15 @@ public class TransactionService extends IntentService {
                     // Advanced error handling. If etherscan returns error message show the shortened version in notification. Else abbort with unknown error
                     try {
                         String errormsg = new JSONObject(received).getJSONObject("error").getString("message");
-                        if (errormsg.indexOf(".") > 0)
-                            errormsg = errormsg.substring(0, errormsg.indexOf("."));
-                        error(errormsg); // f.E Insufficient funds
+                        int code = new JSONObject(received).getJSONObject("error").getInt("code");
+                        if(code == -32000) { // f.E Insufficient funds
+                            error(getString(R.string.insufficient_funds));
+                        }
+                        else {
+                            if (errormsg.indexOf(".") > 0)
+                                errormsg = errormsg.substring(0, errormsg.indexOf("."));
+                            error(errormsg);
+                        }
                     } catch (JSONException e1) {
                         error("Unknown error occured");
                     }

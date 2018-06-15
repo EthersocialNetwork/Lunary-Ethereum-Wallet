@@ -69,6 +69,7 @@ public class FragmentTransactions extends FragmentTransactionsAbstract {
                     }
                 }
             }, force);
+            /*
             EtherscanAPI.getInstance().getInternalTransactions(address, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -99,6 +100,7 @@ public class FragmentTransactions extends FragmentTransactionsAbstract {
                     }
                 }
             }, force);
+            */
         } catch (IOException e) {
             if (ac != null)
                 ((AddressDetailActivity) ac).snackError("Can't fetch account balances. No connection?");
@@ -111,7 +113,10 @@ public class FragmentTransactions extends FragmentTransactionsAbstract {
     private void onComplete(List<TransactionDisplay> w) {
         addToWallets(w);
         addRequestCount();
-        if (getRequestCount() >= 2) {
+
+        // Internal Request 미구현
+        if (getRequestCount() >= 1) {
+        // if (getRequestCount() >= 2) {
             onItemsLoadComplete();
             nothingToShow.setVisibility(wallets.size() == 0 ? View.VISIBLE : View.GONE);
             walletAdapter.notifyDataSetChanged();

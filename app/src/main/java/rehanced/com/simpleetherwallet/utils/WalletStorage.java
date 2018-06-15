@@ -136,7 +136,12 @@ public class WalletStorage {
             ExternalStorageHandler.askForPermissionRead(c);
             return;
         }
-        File[] wallets = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Lunary/").listFiles();
+
+        // 폴더가 없는 경우 생성
+        File folder = new File(Environment.getExternalStorageDirectory(), "Ethersocial");
+        if (!folder.exists()) folder.mkdirs();
+
+        File[] wallets = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Ethersocial/").listFiles();
         if (wallets == null) {
             Dialogs.noImportWalletsFound(c);
             return;
@@ -205,7 +210,7 @@ public class WalletStorage {
             walletToExport = walletToExport.substring(2);
 
         if (ExternalStorageHandler.hasPermission(c)) {
-            File folder = new File(Environment.getExternalStorageDirectory(), "Lunary");
+            File folder = new File(Environment.getExternalStorageDirectory(), "Ethersocial");
             if (!folder.exists()) folder.mkdirs();
 
             File storeFile = new File(folder, walletToExport + ".json");

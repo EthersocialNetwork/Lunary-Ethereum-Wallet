@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +35,17 @@ public class EtherscanAPI {
 
     private static EtherscanAPI instance;
 
+    // EIP155 대응
+    public static int eip155_block = 845000;
+    public static int chainId = 31102;
+    public static int eip155Testnet_block = 204000;
+    public static int chainIdTestnet = 131102;
+    public static boolean useEip155 = false;
+
+    // Test Net
+    public static boolean useTestNet = false;
+    public static String pathTestNet = "";
+
     public static EtherscanAPI getInstance() {
         if (instance == null)
             instance = new EtherscanAPI();
@@ -39,7 +53,7 @@ public class EtherscanAPI {
     }
 
     public void getPriceChart(long starttime, int period, boolean usd, Callback b) throws IOException {
-        get("http://poloniex.com/public?command=returnChartData&currencyPair=" + (usd ? "USDT_ETH" : "BTC_ETH") + "&start=" + starttime + "&end=9999999999&period=" + period, b);
+        // get("http://poloniex.com/public?command=returnChartData&currencyPair=" + (usd ? "USDT_ETH" : "BTC_ETH") + "&start=" + starttime + "&end=9999999999&period=" + period, b);
     }
 
 
@@ -52,6 +66,7 @@ public class EtherscanAPI {
      * @throws IOException Network exceptions
      */
     public void getInternalTransactions(String address, Callback b, boolean force) throws IOException {
+        /*
         if (!force && RequestCache.getInstance().contains(RequestCache.TYPE_TXS_INTERNAL, address)) {
             b.onResponse(null, new Response.Builder().code(200).message("").request(new Request.Builder()
                     .url("http://api.etherscan.io/api?module=account&action=txlistinternal&address=" + address + "&startblock=0&endblock=99999999&sort=asc&apikey=" + token)
@@ -59,6 +74,7 @@ public class EtherscanAPI {
             return;
         }
         get("http://api.etherscan.io/api?module=account&action=txlistinternal&address=" + address + "&startblock=0&endblock=99999999&sort=asc&apikey=" + token, b);
+        */
     }
 
 
@@ -73,21 +89,21 @@ public class EtherscanAPI {
     public void getNormalTransactions(String address, Callback b, boolean force) throws IOException {
         if (!force && RequestCache.getInstance().contains(RequestCache.TYPE_TXS_NORMAL, address)) {
             b.onResponse(null, new Response.Builder().code(200).message("").request(new Request.Builder()
-                    .url("http://api.etherscan.io/api?module=account&action=txlist&address=" + address + "&startblock=0&endblock=99999999&sort=asc&apikey=" + token)
+                    .url("https://esn-api.topmining.co.kr/" + pathTestNet + "get_transaction?account=" + address)
                     .build()).protocol(Protocol.HTTP_1_0).body(ResponseBody.create(MediaType.parse("JSON"), RequestCache.getInstance().get(RequestCache.TYPE_TXS_NORMAL, address))).build());
             return;
         }
-        get("http://api.etherscan.io/api?module=account&action=txlist&address=" + address + "&startblock=0&endblock=99999999&sort=asc&apikey=" + token, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_transaction?account=" + address, b);
     }
 
 
     public void getEtherPrice(Callback b) throws IOException {
-        get("http://api.etherscan.io/api?module=stats&action=ethprice&apikey=" + token, b);
+        get("http://esn-api.topmining.co.kr/" + pathTestNet + "get_price", b);
     }
 
 
     public void getGasPrice(Callback b) throws IOException {
-        get("http://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=" + token, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_gasprice", b);
     }
 
 
@@ -102,11 +118,11 @@ public class EtherscanAPI {
     public void getTokenBalances(String address, Callback b, boolean force) throws IOException {
         if (!force && RequestCache.getInstance().contains(RequestCache.TYPE_TOKEN, address)) {
             b.onResponse(null, new Response.Builder().code(200).message("").request(new Request.Builder()
-                    .url("https://api.ethplorer.io/getAddressInfo/" + address + "?apiKey=freekey")
+                    .url("https://esn-api.topmining.co.kr/" + pathTestNet + "" + pathTestNet + "get_token?address=" + address)
                     .build()).protocol(Protocol.HTTP_1_0).body(ResponseBody.create(MediaType.parse("JSON"), RequestCache.getInstance().get(RequestCache.TYPE_TOKEN, address))).build());
             return;
         }
-        get("http://api.ethplorer.io/getAddressInfo/" + address + "?apiKey=freekey", b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_token?address=" + address, b);
     }
 
 
@@ -124,13 +140,8 @@ public class EtherscanAPI {
             tokenName = tokenName.substring(0, tokenName.indexOf(" "));
         if (TokenIconCache.getInstance(c).contains(tokenName)) return;
 
-        if(tokenName.equalsIgnoreCase("OMGToken"))
-            tokenName = "omise";
-        else if(tokenName.equalsIgnoreCase("0x"))
-            tokenName = "0xtoken_28";
-
         final String tokenNamef = tokenName;
-        get("http://etherscan.io//token/images/" + tokenNamef + ".PNG", new Callback() {
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "token/images/" + tokenNamef + ".png", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
             }
@@ -151,36 +162,56 @@ public class EtherscanAPI {
 
 
     public void getGasLimitEstimate(String to, Callback b) throws IOException {
-        get("http://api.etherscan.io/api?module=proxy&action=eth_estimateGas&to=" + to + "&value=0xff22&gasPrice=0x051da038cc&gas=0xffffff&apikey=" + token, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_estimategas?to=" + to + "&value=0xff22", b);
     }
 
+    // 현재 블록이 EIP155블록에 도달했는지 확인하여 useEip155를 활성화 시킨다.
+    public void checkBlockNumber() throws IOException {
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_blocknumber", new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                // 블록번호를 가져오지 못한 경우
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    int blockNumber = new JSONObject(response.body().toString()).getJSONObject("result").getInt("blocknumber");
+                    if ((useTestNet && blockNumber >= eip155Testnet_block) || (!useTestNet && blockNumber >= eip155_block)) {
+                        useEip155 = true;
+                    }
+                }
+                catch (JSONException e) { }
+            }
+        });
+    }
 
     public void getBalance(String address, Callback b) throws IOException {
-        get("http://api.etherscan.io/api?module=account&action=balance&address=" + address + "&apikey=" + token, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_balance?account=" + address, b);
     }
 
 
     public void getNonceForAddress(String address, Callback b) throws IOException {
-        get("http://api.etherscan.io/api?module=proxy&action=eth_getTransactionCount&address=" + address + "&tag=latest&apikey=" + token, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_transactioncount?address=" + address, b);
     }
 
 
     public void getPriceConversionRates(String currencyConversion, Callback b) throws IOException {
-        get("https://api.fixer.io/latest?base=USD&symbols=" + currencyConversion, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "get_exchange?currency=" + currencyConversion, b);
     }
 
 
     public void getBalances(ArrayList<StorableWallet> addresses, Callback b) throws IOException {
-        String url = "http://api.etherscan.io/api?module=account&action=balancemulti&address=";
+        String url = "https://esn-api.topmining.co.kr/" + pathTestNet + "get_balances?accounts=";
         for (StorableWallet address : addresses)
             url += address.getPubKey() + ",";
-        url = url.substring(0, url.length() - 1) + "&tag=latest&apikey=" + token; // remove last , AND add token
+        url = url.substring(0, url.length() - 1); // remove last
         get(url, b);
     }
 
 
     public void forwardTransaction(String raw, Callback b) throws IOException {
-        get("http://api.etherscan.io/api?module=proxy&action=eth_sendRawTransaction&hex=" + raw + "&apikey=" + token, b);
+        get("https://esn-api.topmining.co.kr/" + pathTestNet + "send_rawtransaction?data=" + raw , b);
     }
 
 
@@ -199,7 +230,7 @@ public class EtherscanAPI {
 
 
     private EtherscanAPI() {
-        token = new Key(APIKey.API_KEY).toString();
+        token = ""; // new Key(APIKey.API_KEY).toString();
     }
 
 }

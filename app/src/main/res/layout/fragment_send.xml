@@ -276,8 +276,8 @@
                     android:id="@+id/currency_spinner"
                     android:layout_width="100dp"
                     android:layout_height="37dp"
-                    android:layout_marginBottom="4dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="4dp"
                     android:dropDownWidth="match_parent" />
 
             </LinearLayout>

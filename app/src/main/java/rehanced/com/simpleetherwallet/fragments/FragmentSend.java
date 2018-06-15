@@ -191,7 +191,7 @@ public class FragmentSend extends Fragment {
 
         currencySpinner = (Spinner) rootView.findViewById(R.id.currency_spinner);
         List<String> currencyList = new ArrayList<>();
-        currencyList.add("ETH");
+        currencyList.add("ESN");
         currencyList.add(ExchangeCalculator.getInstance().getMainCurreny().getName());
         ArrayAdapter<String> curAdapter = new ArrayAdapter<>(ac, android.R.layout.simple_spinner_item, currencyList);
         curAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -276,16 +276,18 @@ public class FragmentSend extends Fragment {
 
                 @Override
                 public void onResponse(Call call, final Response response) throws IOException {
+                    try {
+                        String data = response.body().string();
+                        curAvailable = new BigDecimal(ResponseParser.parseBalance(data, 6));
+                    } catch (Exception e) {
+                        ac.snackError("Cant fetch your account balance");
+                        e.printStackTrace();
+                    }
+
                     ac.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            try {
-                                curAvailable = new BigDecimal(ResponseParser.parseBalance(response.body().string(), 6));
-                                updateDisplays();
-                            } catch (Exception e) {
-                                ac.snackError("Cant fetch your account balance");
-                                e.printStackTrace();
-                            }
+                            updateDisplays();
                         }
                     });
                 }

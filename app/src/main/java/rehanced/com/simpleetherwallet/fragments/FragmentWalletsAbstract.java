@@ -196,6 +196,12 @@ public abstract class FragmentWalletsAbstract extends Fragment implements View.O
                 }
             });
         }
+        // EIP155 확인
+        try {
+            EtherscanAPI.getInstance().checkBlockNumber();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         try {
             update();

@@ -28,7 +28,7 @@
                         android:gravity="left" android:src="@drawable/ic_arrow_left"
                         android:layout_weight="1" />
 
-                    <TextView android:text="0.0000 ETH" android:layout_width="wrap_content"
+                    <TextView android:text="0.0000 ESN" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/balance"
                         android:textSize="24sp" android:gravity="center" android:minWidth="135dp"
                         android:textColor="@color/colorPrimaryDark" android:layout_weight="1" />

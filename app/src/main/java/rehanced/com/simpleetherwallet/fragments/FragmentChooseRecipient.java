@@ -76,7 +76,7 @@ public class FragmentChooseRecipient extends Fragment implements View.OnClickLis
                 if (addressBox.getText().toString().length() > 15 && addressBox.getText().toString().startsWith("0x"))
                     ac.nextStage(addressBox.getText().toString());
                 else
-                    ac.snackError("Invalid Recipient");
+                    ac.snackError(getString(R.string.invalid_recipient));
             }
         });
 

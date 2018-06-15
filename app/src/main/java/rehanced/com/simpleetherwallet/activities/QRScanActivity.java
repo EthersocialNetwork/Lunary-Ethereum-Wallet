@@ -54,7 +54,7 @@ public class QRScanActivity extends AppCompatActivity implements ZXingScannerVie
         TextView title = (TextView) findViewById(R.id.toolbar_title);
         type = getIntent().getByteExtra("TYPE", SCAN_ONLY);
 
-        title.setText(type == SCAN_ONLY ? "Scan Address" : "ADD WALLET");
+        title.setText(type == SCAN_ONLY ? getString(R.string.scan_address) : getString(R.string.add_wallet));
 
         barCode = (FrameLayout) findViewById(R.id.barcode);
         // BarcodeCapture barcodeCapture = (BarcodeCapture) getSupportFragmentManager().findFragmentById(R.id.barcode);
