@@ -24,7 +24,10 @@ public class ToSFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         tos = (TextView) getView().findViewById(R.id.tostext);
-        tos.setText(Html.fromHtml(getActivity().getResources().getString(R.string.tos)));
+        tos.setText(Html.fromHtml(
+                getActivity().getResources().getString(R.string.tos) +
+                getActivity().getResources().getString(R.string.tos2))
+        );
         read = (CheckBox) getView().findViewById(R.id.checkBox);
 
         read.setOnClickListener(new View.OnClickListener() {

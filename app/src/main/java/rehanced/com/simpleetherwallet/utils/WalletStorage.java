@@ -136,6 +136,11 @@ public class WalletStorage {
             ExternalStorageHandler.askForPermissionRead(c);
             return;
         }
+
+        // 폴더가 없는 경우 생성
+        File folder = new File(Environment.getExternalStorageDirectory(), "Ethersocial");
+        if (!folder.exists()) folder.mkdirs();
+
         File[] wallets = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Ethersocial/").listFiles();
         if (wallets == null) {
             Dialogs.noImportWalletsFound(c);

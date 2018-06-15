@@ -191,7 +191,7 @@ public class FragmentSend extends Fragment {
 
         currencySpinner = (Spinner) rootView.findViewById(R.id.currency_spinner);
         List<String> currencyList = new ArrayList<>();
-        currencyList.add("ETH");
+        currencyList.add("ESN");
         currencyList.add(ExchangeCalculator.getInstance().getMainCurreny().getName());
         ArrayAdapter<String> curAdapter = new ArrayAdapter<>(ac, android.R.layout.simple_spinner_item, currencyList);
         curAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
