@@ -614,6 +614,8 @@ documented (and with an implementation available to the public in
 source code form), and must require no special password or key for
 unpacking, reading or copying.</p>
 
+]]></string>
+    <string name="tos2" tools:ignore="TypographyOther"><![CDATA[
 <p> <h3> 7. Additional Terms.</h3></p>
 
 <p>  "Additional permissions" are terms that supplement the terms of this
@@ -967,9 +969,7 @@ For app usage statistics we use Google Analytics. More details about Google Anal
 <p>By using this application you agree to our Privicy Policy and the processing of the collected information by Google, according to the above mentioned purposes. If you do not consent to such processing, please do not further access or use our applications.
 More details about this topic can be found in Google\'s Privacy Policies:
 <a href="https://google.com/policies/privacy">https://google.com/policies/privacy</a> </p>
-
-]]></string>
-
+    ]]></string>
 
 
 </resources>

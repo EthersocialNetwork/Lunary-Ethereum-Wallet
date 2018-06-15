@@ -8,6 +8,7 @@ public class WellKnownAddresses extends HashMap<String, String> {
     public WellKnownAddresses() {
         super();
 
+        /*
         put("0xb794f5ea0ba39494ce839613fffba74279579268", "Poloniex ColdWallet");
         put("0x32be343b94f860124dc4fee278fdcbd38c102d88", "Poloniex");
         put("0x2910543af39aba0cd09dbb2d50200b3e800a63d2", "Kraken 1");
@@ -41,6 +42,7 @@ public class WellKnownAddresses extends HashMap<String, String> {
         put("0xeA7263FEB7d8a8AB0A11eeDD8f1ce04412ab0820", "Dwarfpool Donate");
         put("0xf3b9d2c81f2b24b0fa0acaaa865b7d9ced5fc2fb", "Bitclub Pool");
         put("0xb2930B35844a230f00E51431aCAe96Fe543a0347", "Miningpoolhub");
+        */
     }
 
 }
